@@ -1,0 +1,4 @@
+gradio>=3.34.0
+kokoro-onnx>=0.4.5
+soundfile>=0.13.1
+numpy>=1.26.4,<2.0.0
