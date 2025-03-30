@@ -148,43 +148,47 @@ def tts_generate(text, voice, speed, language):
         return None, f"Error generating speech: {e}"
 
 with gr.Blocks(title="Kokoro TTS Web UI", theme=gr.themes.Base()) as demo:
-    gr.Markdown("# Kokoro TTS Web UI")
-    gr.Markdown("Convert text to speech using Kokoro TTS")
-    
     with gr.Row():
-        with gr.Column():
-            text_input = gr.Textbox(
-                label="Text to speak",
-                placeholder="Enter text to convert to speech...",
-                lines=5
-            )
+        with gr.Column(scale=1):
+            pass
+        with gr.Column(scale=8):
+            gr.Markdown("<h1 style='text-align: center;'>Kokoro TTS Web UI</h1>")
+            gr.Markdown("<p style='text-align: center;'>Convert text to speech using Kokoro TTS</p>")
             
             with gr.Row():
-                voice_dropdown = gr.Dropdown(
-                    choices=flat_voices,
-                    value="af_sarah",
-                    label="Voice"
-                )
-                
-                language_dropdown = gr.Dropdown(
-                    choices=lang_options,
-                    value="en-us",
-                    label="Language"
-                )
-            
-            speed_slider = gr.Slider(
-                minimum=0.5,
-                maximum=2.0,
-                value=1.0,
-                step=0.1,
-                label="Speech Speed"
-            )
-            
-            generate_btn = gr.Button("Generate Speech", variant="primary")
-            status_text = gr.Markdown("")
-        
-        with gr.Column():
-            audio_output = gr.Audio(label="Generated Speech")
+                with gr.Column():
+                    text_input = gr.Textbox(
+                        label="Text to speak",
+                        placeholder="Enter text to convert to speech...",
+                        lines=5
+                    )
+                    
+                    with gr.Row():
+                        voice_dropdown = gr.Dropdown(
+                            choices=flat_voices,
+                            value="af_sarah",
+                            label="Voice"
+                        )
+                        
+                        language_dropdown = gr.Dropdown(
+                            choices=lang_options,
+                            value="en-us",
+                            label="Language"
+                        )
+                    
+                    speed_slider = gr.Slider(
+                        minimum=0.5,
+                        maximum=2.0,
+                        value=1.0,
+                        step=0.1,
+                        label="Speech Speed"
+                    )
+                    
+                    generate_btn = gr.Button("Generate Speech", variant="primary")
+                    audio_output = gr.Audio(label="Generated Speech")
+                    status_text = gr.Markdown("")
+        with gr.Column(scale=1):
+            pass
     
     generate_btn.click(
         fn=tts_generate,
