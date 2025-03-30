@@ -41,3 +41,11 @@ python app.py
 The application will automatically download the following files if they don't exist:
 - kokoro-v1.0.onnx (model file)
 - voices-v1.0.bin (voices data)
+
+## Credits
+
+This project uses the [kokoro-onnx](https://github.com/thewh1teagle/kokoro-onnx) library for text-to-speech functionality.
+
+## Author
+
+vpakarinen (https://github.com/vpakarinen)
