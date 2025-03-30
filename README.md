@@ -1,6 +1,8 @@
 # Kokoro TTS Web UI
 
-A web-based user interface for Kokoro Text-to-Speech using Gradio and kokoro-onnx.
+A simple web user interface for Kokoro Text-to-Speech using Gradio.
+
+![Kokoro TTS Web UI Preview](kokoro-tts-webui-preview.png)
 
 ## Installation
 
