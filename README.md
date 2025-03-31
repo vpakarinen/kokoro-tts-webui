@@ -38,6 +38,18 @@ pip install -r requirements.txt
 python app.py
 ```
 
+## Troubleshooting
+
+### Encoding Issues
+
+If you encounter a `UnicodeDecodeError` when running the application, it's likely due to encoding issues with the kokoro-onnx library. 
+
+The app.py file already includes a fix for this issue, but if you still encounter problems, you can run the application with the UTF-8 flag:
+
+```bash
+python -X utf8 app.py
+```
+
 ## Required Files
 
 The application will automatically download the following files if they don't exist:
