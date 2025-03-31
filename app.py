@@ -9,6 +9,10 @@ import os
 from kokoro_onnx import Kokoro
 from datetime import datetime
 
+os.environ["PYTHONIOENCODING"] = "utf-8"
+if os.name == 'nt':
+    os.environ["PYTHONLEGACYWINDOWSSTDIO"] = "utf-8"
+
 voices_bin_path = "voices-v1.0.bin"
 model_path = "kokoro-v1.0.onnx"
 
