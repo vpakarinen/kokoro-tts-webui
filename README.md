@@ -44,7 +44,7 @@ python app.py
 
 If you encounter a `UnicodeDecodeError`, it's likely due to encoding issues with the kokoro-onnx library. 
 
-The app.py file already includes a fix for this issue, but if you still encounter problems, you can run it with the UTF-8 flag:
+The app.py file already includes a fix for this issue, but if you still encounter problems, you can run it with the UTF-8:
 
 ```bash
 python -X utf8 app.py
