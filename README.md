@@ -56,6 +56,14 @@ The application will automatically download the following files if they don't ex
 - kokoro-v1.0.onnx (model file)
 - voices-v1.0.bin (voices data)
 
+## Sponsor
+
+If you find this project useful, consider supporting me:
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-vpakarinen-FFDD00?style=for-the-badge&logo=buymeacoffee)](https://www.buymeacoffee.com/vpakarinen)
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-vpakarinen-FF6433?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/vpakarinen)
+
 ## Credits
 
 This project uses the [kokoro-onnx](https://github.com/thewh1teagle/kokoro-onnx) library for text-to-speech functionality.
