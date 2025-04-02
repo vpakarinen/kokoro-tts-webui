@@ -2,6 +2,7 @@ import soundfile as sf
 import urllib.request
 import gradio as gr
 import tempfile
+import torch
 import uuid
 import re
 import os
@@ -15,6 +16,19 @@ if os.name == 'nt':
 
 voices_bin_path = "voices-v1.0.bin"
 model_path = "kokoro-v1.0.onnx"
+
+voices_loaded = False
+voice_options = []
+kokoro = None
+
+device = 'cpu'
+if torch.cuda.is_available():
+    device = 'cuda'
+elif hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+    device = 'mps'
+else:
+    print('WARNING: CUDA/MPS are not available, running on CPU. This will be slow!')
+dtype = torch.float32
 
 if not os.path.exists(model_path):
     print("Downloading kokoro-v1.0.onnx model file...")
@@ -30,17 +44,12 @@ if not os.path.exists(voices_bin_path):
         voices_bin_path
     )
 
-kokoro = None
-voices_loaded = False
-
 try:
     kokoro = Kokoro(model_path, voices_bin_path)
     print("Successfully loaded Kokoro with voices-v1.0.bin")
     voices_loaded = True
 except Exception as e:
     print(f"Error loading Kokoro: {e}")
-
-voice_options = []
 
 try:
     if hasattr(kokoro, 'get_available_voices'):
@@ -157,7 +166,6 @@ with gr.Blocks(title="Kokoro TTS Web UI", theme=gr.themes.Base()) as demo:
             pass
         with gr.Column(scale=8):
             gr.Markdown("<h1 style='text-align: center;'>Kokoro TTS Web UI</h1>")
-            gr.Markdown("<p style='text-align: center;'>Convert text to speech using Kokoro TTS</p>")
             
             with gr.Row():
                 with gr.Column():
