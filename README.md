@@ -2,7 +2,7 @@
 
 A simple web user interface for Kokoro Text-to-Speech using Gradio.
 
-![Kokoro TTS Web UI Preview](kokoro-tts-webui-preview.png)
+![Kokoro TTS Web UI Preview](kokoro-tts-webui-preview-2.png)
 
 ## Installation
 
