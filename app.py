@@ -10,10 +10,6 @@ import os
 from kokoro_onnx import Kokoro
 from datetime import datetime
 
-os.environ["PYTHONIOENCODING"] = "utf-8"
-if os.name == 'nt':
-    os.environ["PYTHONLEGACYWINDOWSSTDIO"] = "utf-8"
-
 voices_bin_path = "voices-v1.0.bin"
 model_path = "kokoro-v1.0.onnx"
 
@@ -46,6 +42,7 @@ if not os.path.exists(voices_bin_path):
 
 try:
     kokoro = Kokoro(model_path, voices_bin_path)
+    print("Successfully loaded Kokoro with kokoro-v1.0.onnx")
     print("Successfully loaded Kokoro with voices-v1.0.bin")
     voices_loaded = True
 except Exception as e:
@@ -209,4 +206,4 @@ with gr.Blocks(title="Kokoro TTS Web UI", theme=gr.themes.Base()) as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(server_name="0.0.0.0", share=True)
